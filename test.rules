@@ -1,0 +1,6 @@
+# 57119317 czd
+#------------------
+# HOMEWORK1 IN WEE4
+#------------------
+alert tcp any any -> any 3399 ( msg:"FIRST FLOW IN"; pcre:"/^(login|Initial)$/"; flowbits:set,first; flowbits:noalert; sid:1000000; rev:1; )
+alert tcp any any -> any 3399 ( msg:"bot founded"; pcre:"/^(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\:([0-9]|[1-9]\d|[1-9]\d{2}|[1-9]\d{3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/"; flowbits:isset,first; sid:1000001; rev:1; )
